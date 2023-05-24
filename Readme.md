@@ -116,3 +116,9 @@ sequenceDiagram
 ####  Función añadida al programa de coches
 
 Ahora se pueden buscar coches creados por su matricula usando el nuevo boton implementado en la UI
+
+### Pasos para la implementacion de la nueva función
+
++ Crear metodo mostrarCoche en View, que recibe un objeto de coche y lo muestra.
++ Crear un metodo buscarCoche en Controller que llame a getCoche (metodo de Model), y al nuevo metodo mostrarCoche.
++ Añadir boton Mostrar Coche a la IU, que llama al metodo buscarCoche del Controller.
