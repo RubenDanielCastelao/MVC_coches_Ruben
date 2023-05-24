@@ -69,3 +69,56 @@ sequenceDiagram
     View-->>Controller: boolean
     deactivate View
 ```
+Diagrama ejemplo aumentarVelocidad y bajarVelocidad
+
+```mermaid
+sequenceDiagram
+    participant Model
+    participant Controller
+    participant View
+    Controller->>Model: crearCoche("Mercedes", "BXK 1234")
+    activate Model
+    Model-->>Controller: Coche
+    deactivate Model
+    Controller->>Model: cambiarVelocidad("BXK 1234", 150)
+    activate Model
+    Model-->>Controller: Nueva velocidad
+    deactivate Model
+    Controller->>+View: muestraVelocidad("BXK 1234", velocidad)
+    activate View
+    View->>-View: System.out.println()
+    View-->>Controller: boolean
+    deactivate View
+    Controller->>Model: aumentarVelocidad("BXK 1234", 10)
+    activate Model
+    Model-->>Controller: Nueva velocidad
+    deactivate Model
+    Controller->>+View: muestraVelocidad("BXK 1234", velocidad)
+    activate View
+    View->>-View: System.out.println()
+    View-->>Controller: boolean
+    deactivate View
+    Controller->>Model: bajarVelocidad("BXK 1234", 15)
+    activate Model
+    Model-->>Controller: Nueva velocidad
+    deactivate Model
+    Controller->>+View: muestraVelocidad("BXK 1234", velocidad)
+    activate View
+    View->>-View: System.out.println()
+    View-->>Controller: boolean
+    deactivate View
+```
+
+# Nueva función
+
+---
+
+####  Función añadida al programa de coches
+
+Ahora se pueden buscar coches creados por su matricula usando el nuevo boton implementado en la UI
+
+### Pasos para la implementacion de la nueva función
+
++ Crear metodo mostrarCoche en View, que recibe un objeto de coche y lo muestra.
++ Crear un metodo buscarCoche en Controller que llame a getCoche (metodo de Model), y al nuevo metodo mostrarCoche.
++ Añadir boton Mostrar Coche a la IU, que llama al metodo buscarCoche del Controller.
