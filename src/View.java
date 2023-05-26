@@ -14,7 +14,7 @@ public class View {
      */
     void limiteVelocidad(Integer v){
         //Avisamos mediante un Dialog que se ha excedido el limite de velocidad
-        Dialog.alertaDialogo("ALERTA: Velocidad excedida!" + v + " km/h");
+        Dialog.alertaDialogo("ALERTA: Velocidad excedida! " + v + " km/h");
     }
 
     /**
