@@ -15,7 +15,11 @@ classDiagram
       class Controller{
           +main()
       }
-      class View {+muestraVelocidad(String, Integer)}
+      class View {
+          +muestraVelocidad(String, Integer)
+          +mostrarCoche(Coche)
+          +limiteVelocidad(Integer)
+          }
       class Model {
           ArrayList~Coche~: parking
           +crearCoche(String, String, String)
@@ -23,6 +27,14 @@ classDiagram
           +cambiarVelocidad(String, Integer)
           +getVelocidad(String)
       }
+      class ObsExceso{
+          +update(Observable, Object)
+      }
+      class ClaseObserver{
+          +update(Observable, Object)
+      }
+    Controller "1" *-- "1" ObsExceso : association
+    Controller "1" *-- "1" ClaseObserver : association
     Controller "1" *-- "1" Model : association
     Controller "1" *-- "1" View : association
     Model "1" *-- "1..n" Coche : association
@@ -109,7 +121,7 @@ sequenceDiagram
     deactivate View
 ```
 
-# Nueva función
+# Nueva función buscar coches
 
 ---
 
@@ -122,3 +134,14 @@ Ahora se pueden buscar coches creados por su matricula usando el nuevo boton imp
 + Crear metodo mostrarCoche en View, que recibe un objeto de coche y lo muestra.
 + Crear un metodo buscarCoche en Controller que llame a getCoche (metodo de Model), y al nuevo metodo mostrarCoche.
 + Añadir boton Mostrar Coche a la IU, que llama al metodo buscarCoche del Controller.
+
+# Nueva función limite de velocidad excedida
+
+---
+
+### Pasos seguidos para implementar la nueva función
+
++ Se crea clase ObsExceso, que revisa que la velocidad no exceda 120 km/h.
++ Se crea metodo de dialogo para generar dialogos de alerta.
++ Se crea metodo en View para avisar de velocidad excedida con una alerta.
++ Se añade observer de tipo ObsExceso a la clase Controller.
