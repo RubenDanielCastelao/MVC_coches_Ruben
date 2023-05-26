@@ -8,6 +8,11 @@ public class View {
         Dialog.vDialogo("El coche " + matricula + " tiene una velocidad de: " + v + "km/h");
     }
 
+    void limiteVelocidad(){
+        //Avisamos mediante un Dialog que se ha excedido el limite de velocidad
+        Dialog.vDialogo("ALERTA: Velocidad excedida!");
+    }
+
     /**
      *
      * @param aux Objeto del coche que se va a mostrar
