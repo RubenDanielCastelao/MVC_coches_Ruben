@@ -2,8 +2,12 @@ public class Controller {
     static Model miModelo = new Model();
     static View miVista = new View();
     public static void main(String[] args) {
+        //Se añade un Observer para los cambios de velocidad
         ClaseObserver oVelocidad = new ClaseObserver();
         miModelo.addObserver(oVelocidad);
+        //Se añade un observer en caso de superar la velocidad limite
+        ObsExceso oLimiteVelocidad = new ObsExceso();
+        miModelo.addObserver(oLimiteVelocidad);
         IU.crearVentana();
     }
 
